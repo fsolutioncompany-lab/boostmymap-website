@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #121212;
+}
+
+@layer utilities {
+  .text-shadow-neon-pink {
+    text-shadow: 0 0 10px #F06292;
+  }
+  
+  .text-shadow-neon-turquoise {
+    text-shadow: 0 0 10px #009688;
+  }
+}
+
+/* Add new animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+.advantage-card {
+  @apply transform transition-all duration-300 hover:scale-105;
+}
+
+.advantage-icon {
+  @apply transform transition-all duration-500;
+}
+
+.advantage-card:hover .advantage-icon {
+  @apply scale-110 rotate-6;
+}
+
+.advantage-title {
+  @apply transition-all duration-300;
+}
+
+.advantage-card:hover .advantage-title {
+  @apply text-shadow-neon-pink;
+}
+
+.advantage-card:nth-child(even):hover .advantage-title {
+  @apply text-shadow-neon-turquoise;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Swiper custom styles */
+.testimonials-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.testimonials-swiper .swiper-button-next,
+.testimonials-swiper .swiper-button-prev {
+  color: #F06292;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(18, 18, 18, 0.8);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.testimonials-swiper .swiper-button-next:hover,
+.testimonials-swiper .swiper-button-prev:hover {
+  background-color: rgba(240, 98, 146, 0.2);
+  transform: scale(1.1);
+}
+
+.testimonials-swiper .swiper-button-next:after,
+.testimonials-swiper .swiper-button-prev:after {
+  font-size: 20px;
+}
+
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #F06292;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
